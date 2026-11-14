@@ -1,0 +1,76 @@
+=== FEATURE SELECTION ===
+Selected 15 features from 57
+['Total Fwd Packets', 'Fwd Packets Length Total', 'Fwd Packet Length Max', 'Fwd Packet Length Mean', 'Bwd Packet Length Max', 'Bwd Packet Length Mean', 'Bwd IAT Std', 'Fwd PSH Flags', 'Fwd Header Length', 'Bwd Header Length', 'Bwd Packets/s', 'Packet Length Mean', 'Packet Length Variance', 'Init Fwd Win Bytes', 'Fwd Seg Size Min']
+
+=== SAMPLING ===
+Train shape after SMOTETomek: (2707553, 15)
+0    391742
+1    389034
+2    391352
+3    391251
+4    378261
+5    388691
+6    377222
+Name: count, dtype: int64
+
+=== MODEL COMPARISON (CV) ===
+Logistic Regression: 0.6003 ± 0.0032
+Random Forest: 0.8941 ± 0.0007
+XGBoost: 0.9345 ± 0.0014
+
+=== XGBOOST ===
+Best iteration: 499
+                   precision    recall  f1-score   support
+
+           Botnet       0.95      1.00      0.97     18611
+       BruteForce       0.94      0.98      0.96     13421
+             DDoS       0.99      1.00      0.99    157427
+              DoS       0.98      0.99      0.99     50661
+     Infiltration       0.04      0.75      0.07     12094
+LowSeverityAttack       0.15      0.93      0.25       412
+           Normal       0.99      0.75      0.85    916195
+
+         accuracy                           0.80   1168821
+        macro avg       0.72      0.91      0.73   1168821
+     weighted avg       0.98      0.80      0.87   1168821
+
+
+=== DNN ===
+                   precision    recall  f1-score   support
+
+           Botnet       0.97      0.98      0.98     18611
+       BruteForce       0.93      0.98      0.95     13421
+             DDoS       0.96      0.94      0.95    157427
+              DoS       0.63      0.58      0.61     50661
+     Infiltration       0.02      0.79      0.04     12094
+LowSeverityAttack       0.03      0.90      0.06       412
+           Normal       0.95      0.52      0.68    916195
+
+         accuracy                           0.60   1168821
+        macro avg       0.64      0.81      0.61   1168821
+     weighted avg       0.93      0.60      0.71   1168821
+
+
+=== THRESHOLD TUNING ===
+Best Infiltration threshold: 0.49
+
+=== FINAL ENSEMBLE (TEST SET) ===
+                   precision    recall  f1-score   support
+
+           Botnet       0.95      0.99      0.97     21895
+       BruteForce       0.94      0.98      0.96     15790
+             DDoS       1.00      0.99      1.00    185208
+              DoS       0.98      1.00      0.99     59601
+     Infiltration       0.04      0.79      0.07     14229
+LowSeverityAttack       0.11      0.91      0.19       484
+           Normal       0.99      0.71      0.83   1077876
+
+         accuracy                           0.77   1375083
+        macro avg       0.72      0.91      0.72   1375083
+     weighted avg       0.98      0.77      0.86   1375083
+
+
+=== OVERFITTING CHECK ===
+Train accuracy: 0.8128
+Test accuracy:  0.7983
+Gap:            0.0146

@@ -1,0 +1,28 @@
+{
+  "class_thresholds": {
+    "Infiltration": {
+      "idx": 4,
+      "threshold": 0.5800000000000001,
+      "best_f1": 0.7764429188914315
+    },
+    "LowSeverityAttack": {
+      "idx": 5,
+      "threshold": 0.7400000000000001,
+      "best_f1": 0.8248031496062992
+    },
+    "Botnet": {
+      "idx": 0,
+      "threshold": 0.42000000000000004,
+      "best_f1": 0.9994275115070187
+    },
+    "BruteForce": {
+      "idx": 1,
+      "threshold": 0.18000000000000002,
+      "best_f1": 0.9947910049548977
+    }
+  },
+  "ensemble_weights": {
+    "xgb": 0.6,
+    "dnn": 0.4
+  }
+}
